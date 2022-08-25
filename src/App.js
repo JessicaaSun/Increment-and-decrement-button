@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import CenterLayout from './Components/CenterLayout';
+import Circle from './Components/Circle';
+import DecreaseBtn from './Components/DecreaseBtn';
+import IncreaseBtn from './Components/IncreaseBtn';
 
 function App() {
+  const [num2, setNum] = useState(0); 
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <DecreaseBtn onClick={() => {
+        setNum(num2 - 1)
+      }}/>
+      <IncreaseBtn onClick2={() => {
+        setNum(num2 + 1)
+      }}/>
+     <CenterLayout>
+      <div>
+      <Circle value={num2}/>
+      </div>
+     </CenterLayout>
+     
     </div>
   );
 }
